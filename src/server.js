@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
+import dns from "node:dns";
 import cors from "cors";
 
 import cookieParser from "cookie-parser";
@@ -14,6 +15,14 @@ import FolderRouter from "./Folder/folder.route.js";
 import RecentRouter from "./Recent/recent.route.js";
 import EmployeeRouter from "./Employee/Employee.route.js";
 import AdminRouter from "./Admin/AdminRoute.js";
+
+const dnsServers = process.env.DNS_SERVERS?.split(",")
+  .map((server) => server.trim())
+  .filter(Boolean);
+
+if (dnsServers?.length) {
+  dns.setServers(dnsServers);
+}
 
 
 
