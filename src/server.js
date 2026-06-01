@@ -15,6 +15,7 @@ import FolderRouter from "./Folder/folder.route.js";
 import RecentRouter from "./Recent/recent.route.js";
 import EmployeeRouter from "./Employee/Employee.route.js";
 import AdminRouter from "./Admin/AdminRoute.js";
+import ImageProxyRouter from "./ImageProxy/imageProxy.route.js";
 
 const dnsServers = process.env.DNS_SERVERS?.split(",")
   .map((server) => server.trim())
@@ -93,6 +94,7 @@ app.use("/folders",FolderRouter);
 app.use("/recents",RecentRouter);
 app.use("/employees",EmployeeRouter);
 app.use("/admins",AdminRouter);
+app.use("/image-proxy", ImageProxyRouter);
 
 // MongoDB Connection
 mongoose
