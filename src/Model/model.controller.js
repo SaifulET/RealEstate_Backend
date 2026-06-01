@@ -79,6 +79,8 @@ export const updateModel = async (req, res) => {
     if (req.body.name !== undefined) updateData.name = req.body.name;
     if (req.body.area !== undefined) updateData.area = req.body.area;
     if (req.body.face !== undefined) updateData.face = req.body.face;
+    if (req.body.model_price !== undefined) updateData.model_price = req.body.model_price;
+    if (req.body.rooms_number !== undefined) updateData.rooms_number = req.body.rooms_number;
 
     const updatedModel = await updateModelService(
       req.params.id,

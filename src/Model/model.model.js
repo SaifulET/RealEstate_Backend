@@ -11,7 +11,9 @@ const modelSchema = new mongoose.Schema(
     },
     name: { type: String, required: true },
     area: { type: Number },
-    face: { type: String }
+    face: { type: String },
+    model_price: { type: Number },
+    rooms_number: { type: Number }
   },
   { timestamps: true }
 );
