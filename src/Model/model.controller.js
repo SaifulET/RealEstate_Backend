@@ -1,6 +1,7 @@
 import {
   createModelService,
   getAllModelsService,
+  getCompanyModelsService,
   getModelByIdService,
   updateModelService,
   deleteModelService
@@ -30,6 +31,24 @@ export const getAllModels = async (req, res) => {
   try {
     const projectId = req.params.projectid;
     const models = await getAllModelsService(projectId);
+
+    res.status(200).json({
+      success: true,
+      count: models.length,
+      data: models
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+export const getCompanyModels = async (req, res) => {
+  try {
+    const models = await getCompanyModelsService(req.params.userId);
 
     res.status(200).json({
       success: true,
